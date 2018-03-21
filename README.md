@@ -22,7 +22,7 @@ If the `retractcheck` package does not return any hits for retracted references,
 
 ## License
 
-[GPL-v3](LICENSE.md)
+[MIT](LICENSE.md)
 
 ## Code of conduct
 
