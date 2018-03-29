@@ -1,6 +1,6 @@
 check_doi <- function (doi) {
   # bit.ly/doi-regex inspired
-  regex <- '^10.\\d{4,9}/[-._;()/:A-Z0-9]+$'
+  regex <- '^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$'
   return(grepl(x = doi, pattern = regex,
      perl = TRUE, ignore.case = TRUE))
 }
@@ -16,7 +16,7 @@ find_doi <- function (strings) {
   # bit.ly/doi-regex inspired
   # Removed ^ and $ because it can happen
   # Some issues with trailing semi-colons sometimes
-  regex <- '10.\\d{4,9}/[-._;()/:A-Z0-9]+'
+  regex <- '10\\.\\d{4,9}/[-._;()/:A-Z0-9]+'
   doiLoc <- gregexpr(text = strings, pattern = regex,
      perl = TRUE, ignore.case = TRUE)
   i <- 1

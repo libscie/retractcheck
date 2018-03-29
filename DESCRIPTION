@@ -8,4 +8,5 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Imports: 
-    plyr
+    plyr,
+    textreadr
