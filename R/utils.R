@@ -8,7 +8,6 @@ check_doi <- function (doi) {
 # '10.1002/job.1787' = 200
 
 construct_url <- function (doi) {
-  if (!check_doi(doi)) stop('Please input valid DOI.')
   return(sprintf('http://openretractions.com/api/doi/%s/data.json',
       doi))
 }

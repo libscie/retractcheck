@@ -1,4 +1,6 @@
 retractcheck <- function (doi) {
+  if (!check_doi(doi)) stop('Please input valid DOI.')
+
   call <- httr::GET(construct_url(doi))
 
   if (call$status_code == 404) {
@@ -26,17 +28,8 @@ retractcheck <- function (doi) {
   return(res)
 }
 
-# retracted
-# updated
-# update_type
-# update_doi
-# publisher
-# title
-
-
-# retracted = obj$retracted
-# updated
-# update_type
-# update_doi
-# publisher
-# title
+retractcheck_textfile <- function (file) {
+  lines <- readLines(file)
+  dois <- find_doi(lines)
+  return(retractcheck(dois))
+}
