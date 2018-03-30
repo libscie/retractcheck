@@ -46,3 +46,35 @@ retractcheck_dir <- function (path, ...) {
 
   return(res)
 }
+
+retractcheck_docx <- function (path, ...) {
+  text <- textreadr::read_docx(path, ...)
+  dois <- find_doi(text)
+  res <- retractcheck(dois)
+
+  return(res) 
+}
+
+retractcheck_pdf <- function (path, ...) {
+  text <- textreadr::read_pdf(path, ...)
+  dois <- find_doi(text)
+  res <- retractcheck(dois)
+
+  return(res) 
+}
+
+retractcheck_rtf <- function (path, ...) {
+  text <- textreadr::read_rtf(path, ...)
+  dois <- find_doi(text)
+  res <- retractcheck(dois)
+
+  return(res) 
+}
+
+retractcheck_html <- function (path, ...) {
+  text <- textreadr::read_html(path, ...)
+  dois <- find_doi(text)
+  res <- retractcheck(dois)
+
+  return(res) 
+}
