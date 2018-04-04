@@ -57,7 +57,7 @@ retractcheck <- function (dois) {
 
   if (dim(df)[1] == 0) {
     message('\nHOORAY *<(:)')
-    message('No retractions or corrections to check out')
+    message('None of the DOIs mentioned have indexed retractions or corrections')
   } else {    
       return(df)
   }
