@@ -70,7 +70,7 @@ retractcheck <- function (dois) {
 #' 
 #' @param path Path to directory to check
 #' 
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} dataframe with filenames
 #' @export
 #' @examples \dontrun{
 #'   retractcheck_dir(path = '.')
@@ -95,7 +95,7 @@ retractcheck_dir <- function (path) {
 #' 
 #' @param path Path to DOCX file to check
 #' 
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \dontrun{
 #'   retractcheck_docx('manuscript.docx')
@@ -115,7 +115,7 @@ retractcheck_docx <- function (path) {
 #' 
 #' @param path Path to pdf file to check
 #' 
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \dontrun{
 #'   retractcheck_pdf('manuscript.pdf')
@@ -135,7 +135,7 @@ retractcheck_pdf <- function (path) {
 #' 
 #' @param path Path to rtf file to check
 #' 
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \dontrun{
 #'   retractcheck_rtf('manuscript.rtf')
@@ -155,7 +155,7 @@ retractcheck_rtf <- function (path) {
 #' 
 #' @param path Path to html file to check
 #' 
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \dontrun{
 #'   retractcheck_html('manuscript.html')

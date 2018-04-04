@@ -10,7 +10,7 @@ retractcheck_dir(path)
 \item{path}{Path to directory to check}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} dataframe with filenames
 }
 \description{
 Check all HTML, DOCX, PDF, and RTF files in a directory for updates to 

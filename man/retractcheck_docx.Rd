@@ -10,7 +10,7 @@ retractcheck_docx(path)
 \item{path}{Path to DOCX file to check}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} dataframe without filenames
 }
 \description{
 Check a DOCX file for retractions.

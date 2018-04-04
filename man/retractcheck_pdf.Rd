@@ -10,7 +10,7 @@ retractcheck_pdf(path)
 \item{path}{Path to pdf file to check}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} dataframe without filenames
 }
 \description{
 Check a pdf file for retractions.

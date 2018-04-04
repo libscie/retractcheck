@@ -10,7 +10,7 @@ retractcheck_rtf(path)
 \item{path}{Path to rtf file to check}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} dataframe without filenames
 }
 \description{
 Check a rtf file for retractions.

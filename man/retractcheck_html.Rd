@@ -10,7 +10,7 @@ retractcheck_html(path)
 \item{path}{Path to html file to check}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} dataframe without filenames
 }
 \description{
 Check a html file for retractions.
