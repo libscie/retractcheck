@@ -76,11 +76,15 @@ retractcheck <- function (dois) {
 #'   retractcheck_dir(path = '.')
 #' }
 
-
 retractcheck_dir <- function (path) {
-  text <- textreadr::read_dir(path)$content
-  dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- NULL
+  text <- textreadr::read_dir(path)
+
+  for (file in unique(text$document)) {
+    dois <- find_doi(text$content[text$document == file])
+
+    if (!is.null(dois)) res <- rbind(res, data.frame(file, retractcheck(dois)))
+  }
 
   return(res)
 }
