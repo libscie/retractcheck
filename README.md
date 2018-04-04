@@ -32,4 +32,4 @@ This project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md
 
 * Read the Code of conduct
 * Maintainers sign commits
-* All contributions and pull requests should only be made if you agree to license your contribution under GPL-v3
+* All contributions and pull requests should only be made if you agree to license your contribution under MIT
