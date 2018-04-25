@@ -14,8 +14,8 @@
 #'   check_doi(doi = '10.1111/j.1365-2044.2012.07128.x')
 
 check_doi <- function (doi) {
-  # bit.ly/doi-regex inspired
   regex <- '^10\\.\\d{4,9}/[-._;()/:A-Z0-9]+$'
+
   return(grepl(x = doi, pattern = regex,
      perl = TRUE, ignore.case = TRUE))
 }
@@ -23,7 +23,7 @@ check_doi <- function (doi) {
 #' OpenRetractions URL
 #' 
 #' Helper function to easily maintain the API calls to 
-#' \url{http://openretractions.com}
+#' \url{http://openretractions.com}.
 #' 
 #' @param doi Digital Object Identifier (string)
 #' 
@@ -53,8 +53,10 @@ find_doi <- function (strings) {
   regex <- '10\\.\\d{4,9}/[-._;()/:A-Z0-9]+'
   doiLoc <- gregexpr(text = strings, pattern = regex,
      perl = TRUE, ignore.case = TRUE)
+
   i <- 1
   res <- NULL
+  
   # for each in the doiLoc list check whether match (!-1)
   for ( i in 1:length(doiLoc) ) {
     if ( doiLoc[[i]][1] != -1 ) {

@@ -32,8 +32,8 @@ retractcheck <- function (dois) {
         if (call$status_code == 404) {
           message(sprintf('No updates found for %s', doi))
         } else {
-          obj <- httr::content(call)
-    
+          obj <- httr::content(call, encoding = "UTF-8")
+          print(obj)
           published_original <- as.Date(as.POSIXct(obj$timestamp / 1000,
            origin='1970-01-01'))
           published_update <- as.Date(as.POSIXct(obj$updates[[1]]$timestamp / 1000,
@@ -57,7 +57,7 @@ retractcheck <- function (dois) {
 
   if (dim(df)[1] == 0) {
     message('\nHOORAY *<(:)')
-    message('None of the DOIs mentioned have indexed retractions or corrections')
+    message('None of the DOIs mentioned have indexed retractions or corrections.')
   } else {    
       return(df)
   }
