@@ -14,5 +14,5 @@ URL (string)
 }
 \description{
 Helper function to easily maintain the API calls to 
-\url{http://openretractions.com}
+\url{http://openretractions.com}.
 }
