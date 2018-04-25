@@ -4,7 +4,7 @@ language: R
 sudo: true
 cache: packages
 install: 
-  sudo apt install poppler-utils;
+  sudo apt install poppler-utils libapparmor-dev;
   R -e 'install.packages("pdftools")';
   R -e 'install.packages("covr")';
   R -e 'install.packages("plyr")';
