@@ -3,3 +3,8 @@
 language: R
 sudo: false
 cache: packages
+install: 
+  R -e 'install.packages('pdftools')
+  R -e 'install.packages('antiword')
+after_success:
+        - Rscript -e 'covr::codecov()'

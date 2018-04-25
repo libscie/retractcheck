@@ -2,3 +2,4 @@
 ^CODE_OF_CONDUCT\.md$
 ^\.travis\.yml$
 ^cran-comments\.md$
+^codecov\.yml$
