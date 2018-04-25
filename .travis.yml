@@ -4,7 +4,11 @@ language: R
 sudo: false
 cache: packages
 install: 
-  R -e 'install.packages('pdftools')
-  R -e 'install.packages('antiword')
+  R -e 'install.packages("pdftools")';
+  R -e 'install.packages("covr")';
+  R -e 'install.packages("plyr")';
+  R -e 'install.packages("httr")';
+  R -e 'install.packages("antiword")';
+  R -e 'install.packages("textreadr")'
 after_success:
         - Rscript -e 'covr::codecov()'
