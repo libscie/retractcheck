@@ -1,9 +1,10 @@
 # R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
 
 language: R
-sudo: false
+sudo: true
 cache: packages
 install: 
+  sudo apt install poppler-utils;
   R -e 'install.packages("pdftools")';
   R -e 'install.packages("covr")';
   R -e 'install.packages("plyr")';
