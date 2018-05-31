@@ -33,7 +33,6 @@ retractcheck <- function (dois) {
           message(sprintf('No updates found for %s', doi))
         } else {
           obj <- httr::content(call, encoding = "UTF-8")
-          print(obj)
           published_original <- as.Date(as.POSIXct(obj$timestamp / 1000,
            origin='1970-01-01'))
           published_update <- as.Date(as.POSIXct(obj$updates[[1]]$timestamp / 1000,
