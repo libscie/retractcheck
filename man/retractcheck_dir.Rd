@@ -13,7 +13,7 @@ retractcheck_dir(path)
 \code{\link{retractcheck}} dataframe with filenames
 }
 \description{
-Check all HTML, DOCX, PDF, and RTF files in a directory for updates to 
+Check all HTML, DOCX, PDF, and RTF files in a directory for updates to
 referenced DOIs.
 }
 \examples{

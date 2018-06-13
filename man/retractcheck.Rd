@@ -16,16 +16,16 @@ retractcheck(dois)
 \code{\link{retractcheck}} dataframe
 }
 \description{
-Using 'Digital Object Identifiers', check for retracted (or otherwise 
+Using 'Digital Object Identifiers', check for retracted (or otherwise
 updated) articles using 'Open Retractions' <http://openretractions.com>.
 
-Using \url{http://openretractions.com} their API, this function 
-checks whether a DOI is updated, when that update was made, and what 
+Using \url{http://openretractions.com} their API, this function
+checks whether a DOI is updated, when that update was made, and what
 type of update was made. DOIs without updates are not returned.
 }
 \examples{
 \dontrun{
-  retractcheck(c('10.1002/job.1787', 
+  retractcheck(c('10.1002/job.1787',
                  '10.1111/j.1365-2044.2012.07128.x'))
 }
 }

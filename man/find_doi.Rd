@@ -15,7 +15,7 @@ Vector of DOIs
 \description{
 Helper function to find DOIs in strings. Can occasionally erroneously
 extract DOIs (subset of another DOI for example). Regular expression
-based on CrossRef (\url{http://bit.ly/doi-regex}; see also 
+based on CrossRef (\url{http://bit.ly/doi-regex}; see also
 \code{\link{check_doi}}).
 }
 \examples{
