@@ -1,6 +1,6 @@
 Package: retractcheck
 Version: 1.0.0
-Title: Retraction scanner
+Title: Retraction Scanner
 Description: Using 'Digital Object Identifiers', check for retracted (or otherwise updated) articles using 'Open Retractions' <http://openretractions.com>.
 Authors@R: c(
     person("Chris", "Hartgerink", email = "chris@libscie.org", role = c("aut", "cre")),

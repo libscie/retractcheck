@@ -1,6 +1,6 @@
 # `retractcheck`
 
-[![Travis build status](https://travis-ci.org/chartgerink/retractcheck.svg?branch=master)](https://travis-ci.org/chartgerink/retractcheck)
+[![Build Status](https://travis-ci.org/libscie/retractcheck.svg?branch=master)](https://travis-ci.org/libscie/retractcheck)
 
 Check DOIs in a paper for being retracted by running your manuscript through `retractcheck`. This is an R package that builds on the API of [Open retractions](http://openretractions.com) ([also an open source project](https://github.com/fathomlabs/open-retractions)). 
 
