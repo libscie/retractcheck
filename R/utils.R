@@ -76,11 +76,17 @@ find_doi <- function (strings) {
 #'
 #' Helper function to convert a timestamp from openretractions.com into a date.
 #'
-#' @param timestamp Numeric timestamp
+#' @param x Numeric timestamp
+#' @param database Character. Database (currently only \code{or})
 #'
 #' @return a Date
 #' @export
 
-get_date <- function(timestamp) {
-  return(as.Date(as.POSIXct(timestamp / 1000, origin='1970-01-01')))
+get_date <- function(x, database = 'or') {
+
+  if (database == 'or') {
+    as.Date(as.POSIXct(x / 1000, origin='1970-01-01'))
+  } else {
+    stop("database '", database, "' not supported.")
+  }
 }
