@@ -9,9 +9,9 @@ NULL
 
 #' Check DOIs for retractions
 #'
-#' Using \url{http://openretractions.com} their API, this function
-#' checks whether a DOI is updated, when that update was made, and what
-#' type of update was made. DOIs without updates are not returned.
+#' Using the \url{http://openretractions.com} API, this function
+#' checks whether a DOI has been updated, when that update was made,
+#' and what type of update was made. DOIs without updates are not returned.
 #'
 #' @param dois Vector of strings containing only DOIs
 #'
@@ -27,53 +27,8 @@ retractcheck <- function (dois) {
     if (!check_doi(doi)) {
       message(sprintf('%s is not a valid DOI', doi))
     } else {
-        or_call <- httr::GET(construct_or_url(doi))
-
-        if (or_call$status_code == 404) {
-          message(sprintf('No updates found for %s', doi))
-
-          # doi_call <- httr::GET(
-          #   url = paste0("http://dx.doi.org/", doi),
-          #   httr::accept("application/vnd.citationstyles.csl+json")
-          # )
-          #
-          # if(doi_call$status_code == 404) {
-            publisher <- NA
-            published_original <- NA
-          # } else {
-          #   obj <- httr::content(doi_call, encoding = "UTF-8")
-          #   obj <- jsonlite::fromJSON(rawToChar(obj))
-          #   publisher <- obj$publisher
-          #   published_original <- get_date(obj$license$start$timestamp)
-          # }
-
-          res <- data.frame(doi,
-            update_type = "None found",
-            retracted = NA,
-            update_doi = NA,
-            publisher = publisher,
-            title = NA,
-            published_original = published_original,
-            published_update = NA,
-            update_delay = NA)
-        } else {
-          obj <- httr::content(or_call, encoding = "UTF-8")
-          published_original <- get_date(obj$timestamp)
-          published_update <- get_date(obj$updates[[1]]$timestamp)
-          update_delay <- difftime(published_update, published_original)
-
-          res <- data.frame(doi,
-            update_type = obj$updates[[1]]$type,
-            retracted = obj$retracted,
-            update_doi = obj$updates[[1]]$identifier$doi,
-            publisher = obj$publisher,
-            title = obj$title,
-            published_original,
-            published_update,
-            update_delay)
-        }
-        return(res)
-      }
+      query_or(doi)
+    }
   })
   df <- plyr::ldply(listdf, data.frame)
 
@@ -81,7 +36,7 @@ retractcheck <- function (dois) {
     message('\nHOORAY *<(:)')
     message('None of the DOIs mentioned have indexed retractions or corrections.')
   } else {
-      return(df)
+    return(df)
   }
 }
 
@@ -190,4 +145,56 @@ retractcheck_html <- function (path) {
   res <- retractcheck(dois)
 
   return(res)
+}
+
+
+#' Query \url{http://openretractions.com} for retractions
+#'
+#' Using the \url{http://openretractions.com} API, this function
+#' checks whether a DOI has been updated, when that update was made,
+#' and what type of update was made.
+#'
+#' @param doi Character. A digital object identifier (DOI).
+#'
+#' @return
+#' @export
+#'
+#' @examples \dontrun{
+#'   query_or('10.1002/job.1787')
+#' }
+
+query_or <- function(doi) {
+  # Prepare output
+  res <- data.frame(
+    doi = doi
+    , update_type = 'None found'
+    , retracted = NA
+    , update_doi = NA
+    , publisher = NA
+    , title = NA
+    , published_original = NA
+    , published_update = NA
+    , updated_delay = NA
+    , database = 'open_retractions'
+  )
+
+  # Query database
+  or_call <- httr::GET(construct_or_url(doi))
+
+  if (or_call$status_code == 404) {
+    message(sprintf('No updates found for %s', doi))
+  } else {
+    or_html <- httr::content(or_call, encoding = "UTF-8")
+
+    res$update_type <- or_html$updates[[1]]$type
+    res$retracted <- or_html$retracted
+    res$update_doi <- or_html$updates[[1]]$identifier$doi
+    res$publisher <- or_html$publisher
+    res$title <- or_html$title
+    res$published_original <- get_date(or_html$timestamp)
+    res$published_update <- get_date(or_html$updates[[1]]$timestamp)
+    res$update_delay <- difftime(res$published_update, res$published_original)
+  }
+
+  res
 }
