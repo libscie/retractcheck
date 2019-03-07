@@ -4,7 +4,7 @@ Title: Retraction Scanner
 Description: Using 'Digital Object Identifiers', check for retracted (or otherwise updated) articles using 'Open Retractions' <http://openretractions.com>.
 Authors@R: c(
     person("Chris", "Hartgerink", email = "chris@libscie.org", role = c("aut", "cre")),
-    person("Frederik", "Aust", email = "frederik.aust@uni-koeln.de", role = c("ctb"), comment = c(ORCID = "0000-0003-4900-788X"))
+    person("Frederik", "Aust", email = "frederik.aust@uni-koeln.de", role = c("aut"), comment = c(ORCID = "0000-0003-4900-788X"))
   )
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -13,7 +13,8 @@ ByteCompile: true
 Imports: 
     plyr,
     textreadr,
-    httr
-RoxygenNote: 6.0.1
+    httr,
+    rvest
+RoxygenNote: 6.1.0
 Suggests: 
     covr
