@@ -4,10 +4,12 @@
 \alias{get_date}
 \title{Convert timestamp to Date}
 \usage{
-get_date(timestamp)
+get_date(x, database = "or")
 }
 \arguments{
-\item{timestamp}{Numeric timestamp}
+\item{x}{Numeric or Character. Numeric timestamp from openretractions.com or character from retractiondatabase.com}
+
+\item{database}{Character. Abbreviation of the database (either \code{or} for openretractions.com, or \code{rw} for retractiondatabase.com)}
 }
 \value{
 a Date

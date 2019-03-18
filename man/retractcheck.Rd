@@ -4,13 +4,17 @@
 \name{retractcheck}
 \alias{retractcheck}
 \alias{retractcheck-package}
-\alias{retractcheck}
 \title{retractcheck: Retraction scanner}
 \usage{
-retractcheck(dois)
+retractcheck(dois, database = c("or", "rw"))
 }
 \arguments{
 \item{dois}{Vector of strings containing only DOIs}
+
+\item{database}{Character. Abbreviation of the databases to search
+(\code{or} for openretractions.com and \code{rw} for
+retractiondatabase.com). Note that in the absence of an API,
+searching retractiondatabase.com is rather slow.}
 }
 \value{
 \code{\link{retractcheck}} dataframe
@@ -19,9 +23,9 @@ retractcheck(dois)
 Using 'Digital Object Identifiers', check for retracted (or otherwise
 updated) articles using 'Open Retractions' <http://openretractions.com>.
 
-Using \url{http://openretractions.com} their API, this function
-checks whether a DOI is updated, when that update was made, and what
-type of update was made. DOIs without updates are not returned.
+Using the \url{http://openretractions.com} API, this function
+checks whether a DOI has been updated, when that update was made,
+and what type of update was made.
 }
 \examples{
 \dontrun{
