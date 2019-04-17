@@ -42,7 +42,7 @@ retractcheck <- function (dois, database = c("or", "rw")) {
   if (sum(df$update_type != "None found") == 0) {
     message('\nHOORAY *<(:)')
     message('None of the DOIs mentioned have indexed retractions or corrections.')
-    return(invisible(NULL))
+    return(invisible(df))
   } else {
     return(df)
   }
