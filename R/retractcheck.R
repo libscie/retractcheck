@@ -23,7 +23,7 @@ NULL
 #'   the order specified in \code{database} until either a correction or
 #'   retraction notice is found or all databases have been queried.
 #'
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} data.frame
 #' @export
 #' @examples \dontrun{
 #'   retractcheck(c('10.1002/job.1787',
@@ -88,6 +88,7 @@ retractcheck <- function (dois, database = c('or', 'rw'), return = 'unique') {
 #' referenced DOIs.
 #'
 #' @param path Path to directory to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe with filenames
 #' @export
@@ -95,15 +96,16 @@ retractcheck <- function (dois, database = c('or', 'rw'), return = 'unique') {
 #'   retractcheck_dir(path = '.')
 #' }
 
-retractcheck_dir <- function (path) {
+retractcheck_dir <- function (path, ...) {
   res <- NULL
   text <- textreadr::read_dir(path)
 
   for (file in unique(text$document)) {
     dois <- find_doi(text$content[text$document == file])
-
-    updates <- retractcheck(dois)
-    if (!is.null(dois)) res <- rbind(res, data.frame(file, updates))
+    if (!is.null(dois)) {
+      updates <- retractcheck(dois, ...)
+      res <- rbind(res, data.frame(file, updates))
+    }
   }
 
   return(res)
@@ -114,6 +116,7 @@ retractcheck_dir <- function (path) {
 #' Check a DOCX file for retractions.
 #'
 #' @param path Path to DOCX file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -121,10 +124,10 @@ retractcheck_dir <- function (path) {
 #'   retractcheck_docx('manuscript.docx')
 #' }
 
-retractcheck_docx <- function (path) {
+retractcheck_docx <- function (path, ...) {
   text <- textreadr::read_docx(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -134,6 +137,7 @@ retractcheck_docx <- function (path) {
 #' Check a pdf file for retractions.
 #'
 #' @param path Path to pdf file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -141,10 +145,10 @@ retractcheck_docx <- function (path) {
 #'   retractcheck_pdf('manuscript.pdf')
 #' }
 
-retractcheck_pdf <- function (path) {
+retractcheck_pdf <- function (path, ...) {
   text <- textreadr::read_pdf(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -154,6 +158,7 @@ retractcheck_pdf <- function (path) {
 #' Check a rtf file for retractions.
 #'
 #' @param path Path to rtf file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -161,10 +166,10 @@ retractcheck_pdf <- function (path) {
 #'   retractcheck_rtf('manuscript.rtf')
 #' }
 
-retractcheck_rtf <- function (path) {
+retractcheck_rtf <- function (path, ...) {
   text <- textreadr::read_rtf(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -174,6 +179,7 @@ retractcheck_rtf <- function (path) {
 #' Check a html file for retractions.
 #'
 #' @param path Path to html file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -181,10 +187,10 @@ retractcheck_rtf <- function (path) {
 #'   retractcheck_html('manuscript.html')
 #' }
 
-retractcheck_html <- function (path) {
+retractcheck_html <- function (path, ...) {
   text <- textreadr::read_html(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }

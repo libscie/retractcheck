@@ -22,7 +22,7 @@ the order specified in \code{database} until either a correction or
 retraction notice is found or all databases have been queried.}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} data.frame
 }
 \description{
 Using 'Digital Object Identifiers', check for retracted (or otherwise
@@ -39,6 +39,6 @@ and what type of update was made.
 
   retractcheck(c('10.1002/job.1787',
                  '10.1111/j.1365-2044.2012.07128.x'),
-                 return = 'unique')
+                 return = 'all')
 }
 }
