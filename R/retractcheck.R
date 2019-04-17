@@ -13,30 +13,64 @@ NULL
 #' checks whether a DOI has been updated, when that update was made,
 #' and what type of update was made.
 #'
-#' @param dois Vector of strings containing only DOIs
-#' @param database Character. Abbreviation of the databases to search
+#' @param dois Character. Vector of containing only DOIs
+#' @param database Character. Abbreviation of the databases to search if
 #'   (\code{or} for openretractions.com and \code{rw} for
 #'   retractiondatabase.com). Note that in the absence of an API,
 #'   searching retractiondatabase.com is rather slow.
+#' @param return Character. If \code{all}, all databases are queried and all
+#'   results are returned; if \code{unique}, the databases are queried in
+#'   the order specified in \code{database} until either a correction or
+#'   retraction notice is found or all databases have been queried.
 #'
 #' @return \code{\link{retractcheck}} dataframe
 #' @export
 #' @examples \dontrun{
 #'   retractcheck(c('10.1002/job.1787',
 #'                  '10.1111/j.1365-2044.2012.07128.x'))
+#'
+#'   retractcheck(c('10.1002/job.1787',
+#'                  '10.1111/j.1365-2044.2012.07128.x'),
+#'                  return = 'all')
 #' }
 
-retractcheck <- function (dois, database = c("or", "rw")) {
+retractcheck <- function (dois, database = c('or', 'rw'), return = 'unique') {
   listdf <- apply(t(dois), 2, function (doi) {
     if (!check_doi(doi)) {
       message(sprintf('%s is not a valid DOI', doi))
     } else {
       res <- NULL
-      if ('or' %in% database) res <- rbind(res, query_or(doi))
-      if ('rw' %in% database) res <- rbind(res, query_rw(doi))
+      if (return == 'all') {
+        if ('or' %in% database) res <- rbind(res, query_or(doi))
+        if ('rw' %in% database) res <- rbind(res, query_rw(doi))
+      } else if (return == 'unique') {
+        for (i in database) {
+          i_res <- switch(
+            i
+            , 'or' = query_or(doi)
+            , 'rw' = query_rw(doi)
+            , NULL
+          )
+          res <- rbind(res, i_res)
+
+          if (i_res$update_type != "None found") {
+            i_res <- NULL
+            break
+          }
+        }
+
+      } else {
+        stop(
+          "return = '", return, "' is not supported. Please use either 'unique'  or 'all'."
+          , sep = ""
+          , call. = FALSE
+        )
+      }
+
       res
     }
   })
+
   df <- plyr::ldply(listdf, data.frame)
 
   if (sum(df$update_type != "None found") == 0) {

@@ -6,15 +6,20 @@
 \alias{retractcheck-package}
 \title{retractcheck: Retraction scanner}
 \usage{
-retractcheck(dois, database = c("or", "rw"))
+retractcheck(dois, database = c("or", "rw"), return = "unique")
 }
 \arguments{
-\item{dois}{Vector of strings containing only DOIs}
+\item{dois}{Character. Vector of containing only DOIs}
 
-\item{database}{Character. Abbreviation of the databases to search
+\item{database}{Character. Abbreviation of the databases to search if
 (\code{or} for openretractions.com and \code{rw} for
 retractiondatabase.com). Note that in the absence of an API,
 searching retractiondatabase.com is rather slow.}
+
+\item{return}{Character. If \code{all}, all databases are queried and all
+results are returned; if \code{unique}, the databases are queried in
+the order specified in \code{database} until either a correction or
+retraction notice is found or all databases have been queried.}
 }
 \value{
 \code{\link{retractcheck}} dataframe
@@ -31,5 +36,9 @@ and what type of update was made.
 \dontrun{
   retractcheck(c('10.1002/job.1787',
                  '10.1111/j.1365-2044.2012.07128.x'))
+
+  retractcheck(c('10.1002/job.1787',
+                 '10.1111/j.1365-2044.2012.07128.x'),
+                 return = 'unique')
 }
 }
