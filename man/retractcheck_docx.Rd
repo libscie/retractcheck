@@ -4,10 +4,22 @@
 \alias{retractcheck_docx}
 \title{Check docx file for retractions}
 \usage{
-retractcheck_docx(path)
+retractcheck_docx(path, ...)
 }
 \arguments{
 \item{path}{Path to DOCX file to check}
+
+\item{...}{Arguments passed on to \code{retractcheck}
+\describe{
+  \item{database}{Character. Abbreviation of the databases to search if
+(\code{or} for openretractions.com and \code{rw} for
+retractiondatabase.com). Note that in the absence of an API,
+searching retractiondatabase.com is rather slow.}
+  \item{return}{Character. If \code{all}, all databases are queried and all
+results are returned; if \code{unique}, the databases are queried in
+the order specified in \code{database} until either a correction or
+retraction notice is found or all databases have been queried.}
+}}
 }
 \value{
 \code{\link{retractcheck}} dataframe without filenames

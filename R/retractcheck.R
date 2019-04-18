@@ -13,36 +13,70 @@ NULL
 #' checks whether a DOI has been updated, when that update was made,
 #' and what type of update was made.
 #'
-#' @param dois Vector of strings containing only DOIs
-#' @param database Character. Abbreviation of the databases to search
+#' @param dois Character. Vector of containing only DOIs
+#' @param database Character. Abbreviation of the databases to search if
 #'   (\code{or} for openretractions.com and \code{rw} for
 #'   retractiondatabase.com). Note that in the absence of an API,
 #'   searching retractiondatabase.com is rather slow.
+#' @param return Character. If \code{all}, all databases are queried and all
+#'   results are returned; if \code{unique}, the databases are queried in
+#'   the order specified in \code{database} until either a correction or
+#'   retraction notice is found or all databases have been queried.
 #'
-#' @return \code{\link{retractcheck}} dataframe
+#' @return \code{\link{retractcheck}} data.frame
 #' @export
 #' @examples \dontrun{
 #'   retractcheck(c('10.1002/job.1787',
 #'                  '10.1111/j.1365-2044.2012.07128.x'))
+#'
+#'   retractcheck(c('10.1002/job.1787',
+#'                  '10.1111/j.1365-2044.2012.07128.x'),
+#'                  return = 'all')
 #' }
 
-retractcheck <- function (dois, database = c("or", "rw")) {
+retractcheck <- function (dois, database = c('or', 'rw'), return = 'unique') {
   listdf <- apply(t(dois), 2, function (doi) {
     if (!check_doi(doi)) {
       message(sprintf('%s is not a valid DOI', doi))
     } else {
       res <- NULL
-      if ('or' %in% database) res <- rbind(res, query_or(doi))
-      if ('rw' %in% database) res <- rbind(res, query_rw(doi))
+      if (return == 'all') {
+        if ('or' %in% database) res <- rbind(res, query_or(doi))
+        if ('rw' %in% database) res <- rbind(res, query_rw(doi))
+      } else if (return == 'unique') {
+        for (i in database) {
+          i_res <- switch(
+            i
+            , 'or' = query_or(doi)
+            , 'rw' = query_rw(doi)
+            , NULL
+          )
+          res <- rbind(res, i_res)
+
+          if (i_res$update_type != "None found") {
+            i_res <- NULL
+            break
+          }
+        }
+
+      } else {
+        stop(
+          "return = '", return, "' is not supported. Please use either 'unique'  or 'all'."
+          , sep = ""
+          , call. = FALSE
+        )
+      }
+
       res
     }
   })
+
   df <- plyr::ldply(listdf, data.frame)
 
   if (sum(df$update_type != "None found") == 0) {
     message('\nHOORAY *<(:)')
     message('None of the DOIs mentioned have indexed retractions or corrections.')
-    return(invisible(NULL))
+    return(invisible(df))
   } else {
     return(df)
   }
@@ -54,6 +88,7 @@ retractcheck <- function (dois, database = c("or", "rw")) {
 #' referenced DOIs.
 #'
 #' @param path Path to directory to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe with filenames
 #' @export
@@ -61,15 +96,16 @@ retractcheck <- function (dois, database = c("or", "rw")) {
 #'   retractcheck_dir(path = '.')
 #' }
 
-retractcheck_dir <- function (path) {
+retractcheck_dir <- function (path, ...) {
   res <- NULL
   text <- textreadr::read_dir(path)
 
   for (file in unique(text$document)) {
     dois <- find_doi(text$content[text$document == file])
-
-    updates <- retractcheck(dois)
-    if (!is.null(dois)) res <- rbind(res, data.frame(file, updates))
+    if (!is.null(dois)) {
+      updates <- retractcheck(dois, ...)
+      res <- rbind(res, data.frame(file, updates))
+    }
   }
 
   return(res)
@@ -80,6 +116,7 @@ retractcheck_dir <- function (path) {
 #' Check a DOCX file for retractions.
 #'
 #' @param path Path to DOCX file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -87,10 +124,10 @@ retractcheck_dir <- function (path) {
 #'   retractcheck_docx('manuscript.docx')
 #' }
 
-retractcheck_docx <- function (path) {
+retractcheck_docx <- function (path, ...) {
   text <- textreadr::read_docx(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -100,6 +137,7 @@ retractcheck_docx <- function (path) {
 #' Check a pdf file for retractions.
 #'
 #' @param path Path to pdf file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -107,10 +145,10 @@ retractcheck_docx <- function (path) {
 #'   retractcheck_pdf('manuscript.pdf')
 #' }
 
-retractcheck_pdf <- function (path) {
+retractcheck_pdf <- function (path, ...) {
   text <- textreadr::read_pdf(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -120,6 +158,7 @@ retractcheck_pdf <- function (path) {
 #' Check a rtf file for retractions.
 #'
 #' @param path Path to rtf file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -127,10 +166,10 @@ retractcheck_pdf <- function (path) {
 #'   retractcheck_rtf('manuscript.rtf')
 #' }
 
-retractcheck_rtf <- function (path) {
+retractcheck_rtf <- function (path, ...) {
   text <- textreadr::read_rtf(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
@@ -140,6 +179,7 @@ retractcheck_rtf <- function (path) {
 #' Check a html file for retractions.
 #'
 #' @param path Path to html file to check
+#' @inheritDotParams retractcheck -dois
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
@@ -147,10 +187,10 @@ retractcheck_rtf <- function (path) {
 #'   retractcheck_html('manuscript.html')
 #' }
 
-retractcheck_html <- function (path) {
+retractcheck_html <- function (path, ...) {
   text <- textreadr::read_html(path)
   dois <- find_doi(text)
-  res <- retractcheck(dois)
+  res <- retractcheck(dois, ...)
 
   return(res)
 }
