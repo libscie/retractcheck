@@ -6,15 +6,13 @@
 \alias{retractcheck-package}
 \title{retractcheck: Retraction scanner}
 \usage{
-retractcheck(dois, database = c("or", "rw"), return = "unique")
+retractcheck(dois, database = "or", return = "unique")
 }
 \arguments{
 \item{dois}{Character. Vector of containing only DOIs}
 
-\item{database}{Character. Abbreviation of the databases to search if
-(\code{or} for openretractions.com and \code{rw} for
-retractiondatabase.com). Note that in the absence of an API,
-searching retractiondatabase.com is rather slow.}
+\item{database}{Character. Abbreviation of the databases to search
+(\code{or} for openretractions.com).}
 
 \item{return}{Character. If \code{all}, all databases are queried and all
 results are returned; if \code{unique}, the databases are queried in
