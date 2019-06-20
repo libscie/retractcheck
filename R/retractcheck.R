@@ -17,7 +17,7 @@ NULL
 #'
 #' @return \code{\link{retractcheck}} dataframe
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck(c('10.1002/job.1787',
 #'                  '10.1111/j.1365-2044.2012.07128.x'))
 #' }
@@ -94,7 +94,7 @@ retractcheck <- function (dois) {
 #'
 #' @return \code{\link{retractcheck}} dataframe with filenames
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck_dir(path = '.')
 #' }
 
@@ -120,7 +120,7 @@ retractcheck_dir <- function (path) {
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck_docx('manuscript.docx')
 #' }
 
@@ -140,7 +140,7 @@ retractcheck_docx <- function (path) {
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck_pdf('manuscript.pdf')
 #' }
 
@@ -160,7 +160,7 @@ retractcheck_pdf <- function (path) {
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck_rtf('manuscript.rtf')
 #' }
 
@@ -180,7 +180,7 @@ retractcheck_rtf <- function (path) {
 #'
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   retractcheck_html('manuscript.html')
 #' }
 

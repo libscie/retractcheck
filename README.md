@@ -6,8 +6,6 @@ Check DOIs in a paper for being retracted by running your manuscript through `re
 
 The original inspiration for this package can be found [in a tweet by @PaolaPalma](https://twitter.com/PaoloAPalma/status/976545221268815872) and the origin of the name in [this tweet by @MarkHoffarth](https://twitter.com/MarkHoffarth/status/976548240672870405) :fire:
 
-__Note that this repository will be moved to the [Liberate Science](https://github.com/libscie) account upon release__
-
 ## Example
 
 INSERT GIF LATER
@@ -15,7 +13,7 @@ INSERT GIF LATER
 ## Installation
 
 ```R
-devtools::install_github('chartgerink/retractcheck')
+devtools::install_github('libscie/retractcheck')
 ```
 
 ## Limitations
