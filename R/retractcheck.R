@@ -209,21 +209,19 @@ retractcheck_txt <- function (path, ...) {
 #' }
 
 query_or <- function(doi) {
-                                        # Prepare output
     res <- data.frame(
-        doi = doi
-      , database = 'open_retractions'
-      , update_type = 'None found'
-      , retracted = NA
-      , update_doi = NA
-      , publisher = NA
-      , title = NA
-      , published_original = NA
-      , published_update = NA
-      , update_delay = NA
+        doi = doi,
+        database = 'open_retractions',
+        update_type = 'None found',
+        retracted = NA,
+        update_doi = NA,
+        publisher = NA,
+        title = NA,
+        published_original = NA,
+        published_update = NA,
+        update_delay = NA
     )
 
-                                        # Query database
     or_call <- httr::GET(construct_or_url(doi))
 
     if (or_call$status_code != 404) {
