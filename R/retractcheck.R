@@ -143,7 +143,7 @@ retractcheck_docx <- function (path, ...) {
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \donttest{
-#'   retractcheck_pdf('manuscript.pdf')
+#'   retractcheck_pdf(system.file("extdata", "manuscript.pdf", package = "retractcheck"))
 #' }
 
 retractcheck_pdf <- function (path, ...) {
@@ -189,6 +189,27 @@ retractcheck_rtf <- function (path, ...) {
 #' }
 
 retractcheck_html <- function (path, ...) {
+  text <- textreadr::read_html(path)
+  dois <- find_doi(text)
+  res <- retractcheck(dois, ...)
+
+  return(res)
+}
+
+#' Check txt file for retractions
+#'
+#' Check a txt file for retractions.
+#'
+#' @param path Path to txt file to check
+#' @inheritDotParams retractcheck -dois
+#'
+#' @return \code{\link{retractcheck}} dataframe without filenames
+#' @export
+#' @examples \donttest{
+#'   retractcheck_txt('manuscript.txt')
+#' }
+
+retractcheck_txt <- function (path, ...) {
   text <- textreadr::read_html(path)
   dois <- find_doi(text)
   res <- retractcheck(dois, ...)
