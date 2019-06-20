@@ -31,7 +31,7 @@ checks whether a DOI has been updated, when that update was made,
 and what type of update was made.
 }
 \examples{
-\dontrun{
+\donttest{
   retractcheck(c('10.1002/job.1787',
                  '10.1111/j.1365-2044.2012.07128.x'))
 

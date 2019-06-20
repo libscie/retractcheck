@@ -26,7 +26,7 @@ retraction notice is found or all databases have been queried.}
 Check a pdf file for retractions.
 }
 \examples{
-\dontrun{
-  retractcheck_pdf('manuscript.pdf')
+\donttest{
+  retractcheck_pdf(system.file("extdata", "manuscript.pdf", package = "retractcheck"))
 }
 }

@@ -26,7 +26,7 @@ retraction notice is found or all databases have been queried.}
 Check a DOCX file for retractions.
 }
 \examples{
-\dontrun{
+\donttest{
   retractcheck_docx('manuscript.docx')
 }
 }

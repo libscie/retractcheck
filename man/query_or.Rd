@@ -15,7 +15,7 @@ checks whether a DOI has been updated, when that update was made,
 and what type of update was made.
 }
 \examples{
-\dontrun{
+\donttest{
   query_or('10.1002/job.1787')
 }
 }

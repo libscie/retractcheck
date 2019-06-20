@@ -27,7 +27,7 @@ Check all HTML, DOCX, PDF, and RTF files in a directory for updates to
 referenced DOIs.
 }
 \examples{
-\dontrun{
+\donttest{
   retractcheck_dir(path = '.')
 }
 }
