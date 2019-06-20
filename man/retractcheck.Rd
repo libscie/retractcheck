@@ -4,28 +4,39 @@
 \name{retractcheck}
 \alias{retractcheck}
 \alias{retractcheck-package}
-\alias{retractcheck}
 \title{retractcheck: Retraction scanner}
 \usage{
-retractcheck(dois)
+retractcheck(dois, database = "or", return = "unique")
 }
 \arguments{
-\item{dois}{Vector of strings containing only DOIs}
+\item{dois}{Character. Vector of containing only DOIs}
+
+\item{database}{Character. Abbreviation of the databases to search
+(\code{or} for openretractions.com).}
+
+\item{return}{Character. If \code{all}, all databases are queried and all
+results are returned; if \code{unique}, the databases are queried in
+the order specified in \code{database} until either a correction or
+retraction notice is found or all databases have been queried.}
 }
 \value{
-\code{\link{retractcheck}} dataframe
+\code{\link{retractcheck}} data.frame
 }
 \description{
 Using 'Digital Object Identifiers', check for retracted (or otherwise
 updated) articles using 'Open Retractions' <http://openretractions.com>.
 
-Using \url{http://openretractions.com} their API, this function
-checks whether a DOI is updated, when that update was made, and what
-type of update was made. DOIs without updates are not returned.
+Using the \url{http://openretractions.com} API, this function
+checks whether a DOI has been updated, when that update was made,
+and what type of update was made.
 }
 \examples{
 \dontrun{
   retractcheck(c('10.1002/job.1787',
                  '10.1111/j.1365-2044.2012.07128.x'))
+
+  retractcheck(c('10.1002/job.1787',
+                 '10.1111/j.1365-2044.2012.07128.x'),
+                 return = 'all')
 }
 }

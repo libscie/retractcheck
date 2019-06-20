@@ -3,6 +3,7 @@
 export(check_doi)
 export(find_doi)
 export(get_date)
+export(query_or)
 export(retractcheck)
 export(retractcheck_dir)
 export(retractcheck_docx)

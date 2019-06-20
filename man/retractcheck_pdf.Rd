@@ -4,10 +4,20 @@
 \alias{retractcheck_pdf}
 \title{Check pdf file for retractions}
 \usage{
-retractcheck_pdf(path)
+retractcheck_pdf(path, ...)
 }
 \arguments{
 \item{path}{Path to pdf file to check}
+
+\item{...}{Arguments passed on to \code{retractcheck}
+\describe{
+  \item{database}{Character. Abbreviation of the databases to search
+(\code{or} for openretractions.com).}
+  \item{return}{Character. If \code{all}, all databases are queried and all
+results are returned; if \code{unique}, the databases are queried in
+the order specified in \code{database} until either a correction or
+retraction notice is found or all databases have been queried.}
+}}
 }
 \value{
 \code{\link{retractcheck}} dataframe without filenames
