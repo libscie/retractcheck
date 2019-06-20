@@ -208,7 +208,7 @@ retractcheck_html <- function (path, ...) {
 #' @return
 #' @export
 #'
-#' @examples \dontrun{
+#' @examples \donttest{
 #'   query_or('10.1002/job.1787')
 #' }
 
@@ -258,7 +258,7 @@ query_or <- function(doi) {
 # #' @return
 # #' @export
 # #'
-# #' @examples \dontrun{
+# #' @examples \donttest{
 # #'   query_or('10.1002/job.1787')
 # #'   query_rw('10.1002/job.1787')
 # #' }
