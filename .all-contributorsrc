@@ -1,0 +1,24 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "crsh",
+      "name": "Frederik Aust",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/2195485?v=4",
+      "profile": "http://methexp.uni-koeln.de/?page_id=1603&lang=en",
+      "contributions": [
+        "code",
+        "design"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "retractcheck",
+  "projectOwner": "libscie",
+  "repoType": "github",
+  "repoHost": "https://github.com"
+}
