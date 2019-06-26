@@ -1,5 +1,5 @@
 # `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="150" />
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
 
 [![Build Status](https://travis-ci.org/libscie/retractcheck.svg?branch=master)](https://travis-ci.org/libscie/retractcheck)
 
@@ -55,8 +55,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://chjh.nl"><img src="https://avatars0.githubusercontent.com/u/2946344?v=4" width="100px;" alt="Chris Hartgerink"/><br /><sub><b>Chris Hartgerink</b></sub></a><br /><a href="#maintenance-chartgerink" title="Maintenance">🚧</a></td></tr>
-<tr><td align="center"><a href="http://methexp.uni-koeln.de/?page_id=1603&lang=en"><img src="https://avatars1.githubusercontent.com/u/2195485?v=4" width="100px;" alt="Frederik Aust"/><br /><sub><b>Frederik Aust</b></sub></a><br /><a href="https://github.com/libscie/retractcheck/commits?author=crsh" title="Code">💻</a> <a href="#design-crsh" title="Design">🎨</a></td></tr></table>
+<table><tr><td align="center"><a href="https://chjh.nl"><img src="https://avatars0.githubusercontent.com/u/2946344?v=4" width="100px;" alt="Chris Hartgerink"/><br /><sub><b>Chris Hartgerink</b></sub></a><br /><a href="#maintenance-chartgerink" title="Maintenance">🚧</a></td><td align="center"><a href="http://methexp.uni-koeln.de/?page_id=1603&lang=en"><img src="https://avatars1.githubusercontent.com/u/2195485?v=4" width="100px;" alt="Frederik Aust"/><br /><sub><b>Frederik Aust</b></sub></a><br /><a href="https://github.com/libscie/retractcheck/commits?author=crsh" title="Code">💻</a> <a href="#design-crsh" title="Design">🎨</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
