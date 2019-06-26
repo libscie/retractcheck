@@ -6,7 +6,7 @@ Check DOIs in a paper for being retracted by running your manuscript through `re
 
 The original inspiration for this package can be found [in a tweet by @PaolaPalma](https://twitter.com/PaoloAPalma/status/976545221268815872) and the origin of the name in [this tweet by @MarkHoffarth](https://twitter.com/MarkHoffarth/status/976548240672870405) :fire: 
 
-Retracted papers :books: keep getting cited (see for example [here]https://osf.io/cszpy)) and this package aims to help reduce this effect. [Zotero provides](https://www.zotero.org/blog/retracted-item-notifications/) retraction checking *into* your reference manager, so be sure to check that out too :+1:
+Retracted papers :books: keep getting cited (see for example [here](https://osf.io/cszpy)) and this package aims to help reduce this effect. [Zotero provides](https://www.zotero.org/blog/retracted-item-notifications/) retraction checking *into* your reference manager, so be sure to check that out too :+1:
 
 ## Installation
 
