@@ -34,15 +34,15 @@ If the `retractcheck` package does not return any hits for retracted references,
 
 ## License
 
-[MIT](LICENSE.md)
+[MIT](https://github.com/libscie/retractcheck/blob/master/LICENSE.md)
 
 ## Code of conduct
 
-This project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms. We welcome you with open arms if you are mindful and respectful of differences. You might not always understand another person's perspective; acknowledging that other people's feelings or perspectives are valid regardless of your understanding is prerequisite number one to being both mindful and respectful. We will not consider contributions if they are not done in a respectful manner, no matter how "genius" they might be.
+This project is released with a [Contributor Code of Conduct](https://github.com/libscie/retractcheck/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms. We welcome you with open arms if you are mindful and respectful of differences. You might not always understand another person's perspective; acknowledging that other people's feelings or perspectives are valid regardless of your understanding is prerequisite number one to being both mindful and respectful. We will not consider contributions if they are not done in a respectful manner, no matter how "genius" they might be.
 
 ## Contributor guidelines
 
-* Read the [Code of conduct](CODE_OF_CONDUCT.md)
+* Read the [Code of conduct](https://github.com/libscie/retractcheck/blob/master/CODE_OF_CONDUCT.md)
 * Maintainers sign commits with their GPG key (see also [this guide](https://help.github.com/en/articles/signing-commits))
 * All contributions and pull requests should only be made if you agree to license your contribution under MIT
 
