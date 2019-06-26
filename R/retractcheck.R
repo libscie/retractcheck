@@ -201,7 +201,7 @@ retractcheck_txt <- function (path, ...) {
 #'
 #' @param doi Character. A digital object identifier (DOI).
 #'
-#' @return
+#' @return Data frame
 #' @export
 #'
 #' @examples \donttest{

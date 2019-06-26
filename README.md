@@ -1,20 +1,17 @@
 # `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="150" />
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors)
-
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) 
 [![Build Status](https://travis-ci.org/libscie/retractcheck.svg?branch=master)](https://travis-ci.org/libscie/retractcheck)
 
 Check DOIs in a paper for being retracted by running your manuscript through `retractcheck` in R or using the [Shiny app](https://frederikaust.shinyapps.io/retractcheck_shinyapp/) in your browser. This R package builds on the API of [Open retractions](http://openretractions.com) ([also an open source project](https://github.com/fathomlabs/open-retractions)). 
 
-The original inspiration for this package can be found [in a tweet by @PaolaPalma](https://twitter.com/PaoloAPalma/status/976545221268815872) and the origin of the name in [this tweet by @MarkHoffarth](https://twitter.com/MarkHoffarth/status/976548240672870405) :fire:
+The original inspiration for this package can be found [in a tweet by @PaolaPalma](https://twitter.com/PaoloAPalma/status/976545221268815872) and the origin of the name in [this tweet by @MarkHoffarth](https://twitter.com/MarkHoffarth/status/976548240672870405) :fire: 
 
-## Example
-
-INSERT GIF LATER
+Retracted papers :books: keep getting cited (see for example [here]https://osf.io/cszpy)) and this package aims to help reduce this effect. [Zotero provides](https://www.zotero.org/blog/retracted-item-notifications/) retraction checking *into* your reference manager, so be sure to check that out too :+1:
 
 ## Installation
 
 ```R
-devtools::install_github('libscie/retractcheck')
+install.packages('retractcheck')
 ```
 
 Please note that the dependency on `textreadr` may fail if you don't have the necessary software for that. If installation fails, try `install.packages('textreadr')` and see what errors it gives. It may look like this
@@ -45,8 +42,8 @@ This project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md
 
 ## Contributor guidelines
 
-* Read the Code of conduct
-* Maintainers sign commits
+* Read the [Code of conduct](CODE_OF_CONDUCT.md)
+* Maintainers sign commits with their GPG key (see also [this guide](https://help.github.com/en/articles/signing-commits))
 * All contributions and pull requests should only be made if you agree to license your contribution under MIT
 
 ## Contributors

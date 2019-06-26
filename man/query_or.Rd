@@ -9,6 +9,9 @@ query_or(doi)
 \arguments{
 \item{doi}{Character. A digital object identifier (DOI).}
 }
+\value{
+Data frame
+}
 \description{
 Using the \url{http://openretractions.com} API, this function
 checks whether a DOI has been updated, when that update was made,

@@ -12,11 +12,13 @@ retractcheck(dois, database = "or", return = "unique")
 \item{dois}{Character. Vector of containing only DOIs}
 
 \item{database}{Character. Abbreviation of the databases to search
-(\code{or} for openretractions.com).}
+(\code{or} for openretractions.com).  # #' and \code{rw} for #
+#' retractiondatabase.com). Note that in the absence of an API,
+# #' searching retractiondatabase.com is rather slow.}
 
-\item{return}{Character. If \code{all}, all databases are queried and all
-results are returned; if \code{unique}, the databases are queried in
-the order specified in \code{database} until either a correction or
+\item{return}{Character. If \code{all}, all DOIs are queried and
+all results are returned; if \code{unique}, the DOIs are
+queried in the order specified until either a correction or
 retraction notice is found or all databases have been queried.}
 }
 \value{
