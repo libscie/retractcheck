@@ -55,7 +55,8 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-<table><tr><td align="center"><a href="https://chjh.nl"><img src="https://avatars0.githubusercontent.com/u/2946344?v=4" width="100px;" alt="Chris Hartgerink"/><br /><sub><b>Chris Hartgerink</b></sub></a><br /><a href="#maintenance-chartgerink" title="Maintenance">🚧</a></td></tr></table>
+<table><tr><td align="center"><a href="https://chjh.nl"><img src="https://avatars0.githubusercontent.com/u/2946344?v=4" width="100px;" alt="Chris Hartgerink"/><br /><sub><b>Chris Hartgerink</b></sub></a><br /><a href="#maintenance-chartgerink" title="Maintenance">🚧</a></td></tr>
+<tr><td align="center"><a href="http://methexp.uni-koeln.de/?page_id=1603&lang=en"><img src="https://avatars1.githubusercontent.com/u/2195485?v=4" width="100px;" alt="Frederik Aust"/><br /><sub><b>Frederik Aust</b></sub></a><br /><a href="https://github.com/libscie/retractcheck/commits?author=crsh" title="Code">💻</a> <a href="#design-crsh" title="Design">🎨</a></td></tr></table>
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
