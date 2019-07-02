@@ -29,6 +29,6 @@ Check a html file for retractions.
 }
 \examples{
 \donttest{
-  retractcheck_html('manuscript.html')
+  retractcheck_html(system.file("extdata", "manuscript.html", package = "retractcheck"))
 }
 }

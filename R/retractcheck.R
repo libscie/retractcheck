@@ -97,7 +97,7 @@ retractcheck_dir <- function (path, ...) {
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \donttest{
-#'   retractcheck_docx('manuscript.docx')
+#'   retractcheck_docx(system.file("extdata", "manuscript.docx", package = "retractcheck"))
 #' }
 
 retractcheck_docx <- function (path, ...) {
@@ -139,7 +139,7 @@ retractcheck_pdf <- function (path, ...) {
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \donttest{
-#'   retractcheck_rtf('manuscript.rtf')
+#'   retractcheck_rtf(system.file("extdata", "manuscript.rtf", package = "retractcheck"))
 #' }
 
 retractcheck_rtf <- function (path, ...) {
@@ -160,7 +160,7 @@ retractcheck_rtf <- function (path, ...) {
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \donttest{
-#'   retractcheck_html('manuscript.html')
+#'   retractcheck_html(system.file("extdata", "manuscript.html", package = "retractcheck"))
 #' }
 
 retractcheck_html <- function (path, ...) {
@@ -181,7 +181,7 @@ retractcheck_html <- function (path, ...) {
 #' @return \code{\link{retractcheck}} dataframe without filenames
 #' @export
 #' @examples \donttest{
-#'   retractcheck_txt('manuscript.txt')
+#'   retractcheck_txt(system.file("extdata", "manuscript.txt", package = "retractcheck"))
 #' }
 
 retractcheck_txt <- function (path, ...) {

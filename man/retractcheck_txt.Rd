@@ -29,6 +29,6 @@ Check a txt file for retractions.
 }
 \examples{
 \donttest{
-  retractcheck_txt('manuscript.txt')
+  retractcheck_txt(system.file("extdata", "manuscript.txt", package = "retractcheck"))
 }
 }

@@ -29,6 +29,6 @@ Check a rtf file for retractions.
 }
 \examples{
 \donttest{
-  retractcheck_rtf('manuscript.rtf')
+  retractcheck_rtf(system.file("extdata", "manuscript.rtf", package = "retractcheck"))
 }
 }
