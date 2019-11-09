@@ -20,7 +20,7 @@ Please note that the dependency on `textreadr` may fail if you don't have the ne
 Configuration failed because poppler-cpp was not found. Try installing:
  * deb: libpoppler-cpp-dev (Debian, Ubuntu, etc)
  * On Ubuntu 16.04 or 18.04 use this PPA:
-    sudo add-apt-repository -y ppa:opencpu/poppler
+    sudo add-apt-repository -y ppa:cran/poppler
     sudo apt-get update
     sudo sudo apt-get install -y libpoppler-cpp-dev
  * rpm: poppler-cpp-devel (Fedora, CentOS, RHEL)
