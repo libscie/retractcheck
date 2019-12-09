@@ -14,19 +14,7 @@ Retracted papers :books: keep getting cited (see for example [here](https://osf.
 install.packages('retractcheck')
 ```
 
-Please note that the dependency on `textreadr` may fail if you don't have the necessary software for that. If installation fails, try `install.packages('textreadr')` and see what errors it gives. It may look like this
-
-```R
-Configuration failed because poppler-cpp was not found. Try installing:
- * deb: libpoppler-cpp-dev (Debian, Ubuntu, etc)
- * On Ubuntu 16.04 or 18.04 use this PPA:
-    sudo add-apt-repository -y ppa:opencpu/poppler
-    sudo apt-get update
-    sudo sudo apt-get install -y libpoppler-cpp-dev
- * rpm: poppler-cpp-devel (Fedora, CentOS, RHEL)
- * csw: poppler_dev (Solaris)
- * brew: poppler (Mac OSX)
-```
+Please note that the dependency on `textreadr` may fail if you don't have the necessary software for that. If installation fails, try `install.packages('textreadr')` and see what errors it gives.
 
 ## Limitations
 
