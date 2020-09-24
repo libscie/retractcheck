@@ -1,6 +1,9 @@
 # `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="150" />
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) 
 [![Build Status](https://travis-ci.org/libscie/retractcheck.svg?branch=master)](https://travis-ci.org/libscie/retractcheck)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/retractcheck)](https://cran.r-project.org/package=retractcheck)
+[![CRAN\_Downloads\_Total](http://cranlogs.r-pkg.org/badges/grand-total/retractcheck?color=brightgreen)](https://cran.r-project.org/package=retractcheck)
 
 Check DOIs in a paper for being retracted by running your manuscript through `retractcheck` in R or using the [Shiny app](https://frederikaust.shinyapps.io/retractcheck_shinyapp/) in your browser. This R package builds on the API of [Open retractions](http://openretractions.com) ([also an open source project](https://github.com/fathomlabs/open-retractions)). 
 
