@@ -1,5 +1,8 @@
 # `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="150" />
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) 
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 [![Build Status](https://travis-ci.org/libscie/retractcheck.svg?branch=master)](https://travis-ci.org/libscie/retractcheck)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/retractcheck)](https://cran.r-project.org/package=retractcheck)
