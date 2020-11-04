@@ -1,4 +1,4 @@
-# `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="150" />
+# `retractcheck` <img src="tools/images/retractcheck_hex.png" align="right" height="64" />
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors) 
